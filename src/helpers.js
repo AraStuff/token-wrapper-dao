@@ -1,7 +1,9 @@
 const RLP = require('rlp')
+const { encodeActCall } = require("mathew-aragon-toolkit");
 const {keccak256} = require('web3-utils');
 const { ethers } = require('ethers')
 
+let provider;
 
 
 async function buildNonceForAddress(_address, _index) {
@@ -17,8 +19,18 @@ function calculateNewProxyAddress(_daoAddress, _nonce) {
     return contractAddress;
 }
 
-export default async function counterfactualAddress(_address, _index, network) {
-    const provider = ethers.getDefaultProvider(network);
+async function counterfactualAddress(_address, _index, network) {
+    provider = ethers.getDefaultProvider(network);
     const nonce = await buildNonceForAddress(_address, _index, provider)
     return calculateNewProxyAddress(_address, nonce)
 }
+
+async function encodeContractInteraction(contract, signature, params) {
+    const data = await encodeActCall(signature, params)
+    return {
+        to: contract,
+        calldata: data
+    }
+}
+
+module.exports = { counterfactualAddress, encodeContractInteraction }
