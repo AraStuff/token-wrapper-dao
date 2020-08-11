@@ -47,9 +47,10 @@ async function createVote() {
 
 
   // 5. app initialisation payloads
-  const tokenwrapperInitPayload = await encodeActCall(
-    tokenwrapperInitSignature,
-    [deposit_token, token_name, symbol]
+  const tokenwrapperInitPayload = await encodeActCall(tokenwrapperInitSignature, [
+    deposit_token, 
+    token_name, 
+    symbol]
   );
 
   const newVotingInitPayload = await encodeActCall(newVotingInitSignature, [
@@ -130,7 +131,7 @@ async function createVote() {
 }
 
 const main = async () => {
-  console.log('Creating vote to install TokenWrapper and Voting)
+  console.log('Creating vote to install TokenWrapper and Voting')
   await createVote()
   console.log(`http://${environment}.aragon.org/#/${dao}/${voting}`);
 };
