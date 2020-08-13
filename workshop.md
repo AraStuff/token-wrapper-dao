@@ -6,7 +6,19 @@
 - Why use it?
 - Goal of this workshop?
 
+<br>
+
 ## Aragon Primer
+
+What does it mean to install an app to an Aragon DAO?
+
+- You're deploying a contract and saying that the DAO controls it.
+- The ACL determines what addresses have which permissions to call functions on the contracts.
+- WTF is a script registry?
+
+<br>
+
+## Toolkit Walkthrough
 
 ### 0. Imports
 
