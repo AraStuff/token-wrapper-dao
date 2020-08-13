@@ -751,6 +751,15 @@ any-promise@1.3.0, any-promise@^1.3.0:
   resolved "https://registry.yarnpkg.com/any-promise/-/any-promise-1.3.0.tgz#abc6afeedcea52e809cdc0376aed3ce39635d17f"
   integrity sha1-q8av7tzqUugJzcA3au0845Y10X8=
 
+aragon-hacking-helpers@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/aragon-hacking-helpers/-/aragon-hacking-helpers-0.1.4.tgz#4ca192107976c127aaa1810c915b40ab54343434"
+  integrity sha512-P39D7n9puYhxUw3oBKAnl/S1ltYDxLvCjmnF/mpbAUSFAEC3PvQ00P6vTBFcJvrgJ5Uz0O1VpZkpOHNGgyf3ug==
+  dependencies:
+    ethers "^5.0.8"
+    rlp "^2.2.6"
+    web3-utils "^1.2.11"
+
 array-flatten@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/array-flatten/-/array-flatten-1.1.1.tgz#9a5f699051b1e7073328f2a008968b64ea2955d2"
@@ -1880,7 +1889,7 @@ ethers@^4.0.44:
     uuid "2.0.1"
     xmlhttprequest "1.8.0"
 
-ethers@^5.0.0:
+ethers@^5.0.0, ethers@^5.0.8:
   version "5.0.8"
   resolved "https://registry.yarnpkg.com/ethers/-/ethers-5.0.8.tgz#c13d0fdf5e66db8085e2036d3309ed2f8a17ed89"
   integrity sha512-of/rPgJ7E3yyBADUv5A7Gtkd7EB8ta/T9NS5CCG9tj9cifnXcI3KIdYQ7d8AS+9vm38pR1g6S5I+Q/mRnlQZlg==
@@ -3507,7 +3516,7 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
-rlp@^2.0.0, rlp@^2.2.3:
+rlp@^2.0.0, rlp@^2.2.3, rlp@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/rlp/-/rlp-2.2.6.tgz#c80ba6266ac7a483ef1e69e8e2f056656de2fb2c"
   integrity sha512-HAfAmL6SDYNWPUOJNrM500x4Thn4PZsEy5pijPh40U9WfNk0z15hUYzO9xVIMAdIHdFtD8CBDHd75Td1g36Mjg==
@@ -4483,7 +4492,7 @@ web3-shh@1.2.6:
     web3-core-subscriptions "1.2.6"
     web3-net "1.2.6"
 
-web3-utils@1.2.11, web3-utils@^1.2.1, web3-utils@^1.2.6, web3-utils@^1.2.7:
+web3-utils@1.2.11, web3-utils@^1.2.1, web3-utils@^1.2.11, web3-utils@^1.2.6, web3-utils@^1.2.7:
   version "1.2.11"
   resolved "https://registry.yarnpkg.com/web3-utils/-/web3-utils-1.2.11.tgz#af1942aead3fb166ae851a985bed8ef2c2d95a82"
   integrity sha512-3Tq09izhD+ThqHEaWYX4VOT7dNPdZiO+c/1QMA0s5X2lDFKK/xHJb7cyTRRVzN2LvlHbR7baS1tmQhSua51TcQ==

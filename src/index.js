@@ -10,7 +10,7 @@ const dao = '0xd5d9b55ab9e93e416e635b440dc0f3f88f8bd7f7';
 const acl = '0xffa741e8463243b6cfa911fb252f5d50ce00f718';
 const voting = '0x4c29e776d4de3861acb522eb8a4e076550892715';
 const finance = '0x8566fdf5e8c9e5372c53b3d05e720b553321eb66';
-const environment = 'rinkeby';
+const network = 'rinkeby';
 
 
 // 2. Kernel and ACL signatures
@@ -42,8 +42,8 @@ const time = '86400';
 
 async function createVote() {
   // 4. calculate counterfactual addresses
-  const tokenwrapper = await counterfactualAddress(dao, 0);
-  const newVoting = await counterfactualAddress(dao, 1);
+  const tokenwrapper = await counterfactualAddress(dao, 0, network);
+  const newVoting = await counterfactualAddress(dao, 1, network);
 
 
   // 5. app initialisation payloads
@@ -126,14 +126,14 @@ async function createVote() {
     "newVote",
     [script, "installing tokenwrapper and voting instance"],
     () => {},
-    environment
+    network
   );
 }
 
 const main = async () => {
   console.log('Creating vote to install TokenWrapper and Voting')
   await createVote()
-  console.log(`http://${environment}.aragon.org/#/${dao}/${voting}`);
+  console.log(`http://${network}.aragon.org/#/${dao}/${voting}`);
 };
 
 main()
