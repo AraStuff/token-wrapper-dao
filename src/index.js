@@ -48,8 +48,8 @@ async function createVote() {
 
   // 5. app initialisation payloads
   const tokenwrapperInitPayload = await encodeActCall(tokenwrapperInitSignature, [
-    deposit_token, 
-    token_name, 
+    deposit_token,
+    token_name,
     symbol]
   );
 
@@ -61,7 +61,7 @@ async function createVote() {
   ]);
 
 
-  // 6. Encode indervidual intervidual transactions into an array
+  // 6. Encode individual transactions into an array
   const actions = await Promise.all([
     encodeContractInteraction(dao, newAppInstanceSignature, [
       tokenwrapperAppId,

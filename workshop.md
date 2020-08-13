@@ -17,24 +17,28 @@
 - encodeContractInteraction
 - keccak256
 
-### 1. Kernal and ACL signatures
-
-- newAppInstanceSignature
-- createPermissionSignature
-- grantPermissionSignature
-
-### 2. DAO addresses
+### 1. DAO addresses
 
 - dao
 - acl
 - voting
 - finance
 
+> Where/how do we find these?
+
+### 2. Kernal and ACL signatures
+
+- newAppInstanceSignature
+- createPermissionSignature
+- grantPermissionSignature
+
 ### 3. Apps
 
 - appId
 - app base
 - initialisation signature
+
+> Where/how do we find these?
 
 #### A) TOKEN WRAPPER
 
