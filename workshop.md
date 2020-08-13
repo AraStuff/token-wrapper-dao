@@ -66,7 +66,7 @@ we need some addresses for the DAO
 #### A) TOKEN WRAPPER
 - deposit_token
 - token_name
-- symbol 
+- symbol  
 
 #### B) Voting
 - quorum
