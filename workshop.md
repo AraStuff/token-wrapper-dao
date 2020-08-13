@@ -1,17 +1,15 @@
 # Anatomy of an Toolkit script
 
 ## Outline
+
 - What is Toolkit?
 - Why use it?
 - Goal of this workshop?
 
 ## Aragon Primer
 
-<br>
-
----
-
 ### 0. Imports
+
 - encodeCallScript
 - encodeActCall
 - execAppMethod
@@ -20,40 +18,53 @@
 - keccak256
 
 ### 1. Kernal and ACL signatures
+
 - newAppInstanceSignature
-- createPermissionSignature 
+- createPermissionSignature
 - grantPermissionSignature
 
 ### 2. DAO addresses
+
 - dao
 - acl
 - voting
 - finance
 
 ### 3. Apps
+
 - appId
 - app base
 - initialisation signature
 
 #### A) TOKEN WRAPPER
+
 - deposit_token
 - token_name
-- symbol 
+- symbol
 
 #### B) Voting
+
 - quorum
 - support
 - time
 
 ### 4. `counterfactualAddress()`
 
+TBD.
+
 ### 5. App initialisation payloads
 
+TBD.
+
 ### 6. Encode Transactions
+
 - `encodeContractInteraction()`
 
 ### 7. Script
-- what is a script
-- what apps can execute scripts
+
+- What is a script?
+- What apps can execute scripts?
 
 ### 8. Create vote
+
+TBD.
