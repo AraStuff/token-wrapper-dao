@@ -6,10 +6,12 @@ const { keccak256 } = require("web3-utils");
 
 
 // 1.  DAO Addresses
-const dao = '0xd5d9b55ab9e93e416e635b440dc0f3f88f8bd7f7';
-const acl = '0xffa741e8463243b6cfa911fb252f5d50ce00f718';
-const voting = '0x4c29e776d4de3861acb522eb8a4e076550892715';
-const finance = '0x8566fdf5e8c9e5372c53b3d05e720b553321eb66';
+const dao = '';
+const acl = '';
+const securityTokenManager = '';
+const voting = '';
+const finance = '';
+const vault = '';
 const network = 'rinkeby';
 
 
@@ -18,6 +20,8 @@ const createPermissionSignature =
   "createPermission(address,address,bytes32,address)";
 const newAppInstanceSignature = "newAppInstance(bytes32,address,bytes,bool)";
 const grantPermissionSignature = "grantPermission(address,address,bytes32)";
+const revokePermissionSignature = "revokePermission(address,address,bytes32)";
+const setPermissionManagerSignature = "setPermissionManager(address,address,bytes32)"
 
 
 // 3a. TOKEN WRAPPER
@@ -114,7 +118,129 @@ async function createVote() {
       finance,
       keccak256("MANAGE_PAYMENTS_ROLE"),
     ]),
+    encodeContractInteraction(acl, grantPermissionSignature, [
+      newVoting,
+      securityTokenManager,
+      keccak256("MINT_ROLE"),
+    ]),
+    encodeContractInteraction(acl, grantPermissionSignature, [
+      newVoting,
+      securityTokenManager,
+      keccak256("BURN_ROLE"),
+    ]),
+     encodeContractInteraction(acl, grantPermissionSignature, [
+      newVoting,
+      dao,
+      keccak256("APP_MANAGER_ROLE"),
+    ]),
+    encodeContractInteraction(acl, grantPermissionSignature, [
+      newVoting,
+      acl,
+      keccak256("CREATE_PERMISSIONS_ROLE"),
+    ]),
+    encodeContractInteraction(acl, revokePermissionSignature, [
+      voting,
+      acl,
+      keccak256("CREATE_PERMISSIONS_ROLE"),
+    ]),
+    encodeContractInteraction(acl, revokePermissionSignature, [
+      voting,
+      dao,
+      keccak256("APP_MANAGER_ROLE"),
+    ]),
+    encodeContractInteraction(acl, revokePermissionSignature, [
+      voting,
+      securityTokenManager,
+      keccak256("MINT_ROLE"),
+    ]),
+    encodeContractInteraction(acl, revokePermissionSignature, [
+      voting,
+      securityTokenManager,
+      keccak256("BURN_ROLE"),
+    ]),
+    encodeContractInteraction(acl, revokePermissionSignature, [
+      voting,
+      finance,
+      keccak256("CREATE_PAYMENTS_ROLE"),
+    ]),
+    encodeContractInteraction(acl, revokePermissionSignature, [
+      voting,
+      finance,
+      keccak256("EXECUTE_PAYMENTS_ROLE"),
+    ]),
+    encodeContractInteraction(acl, revokePermissionSignature, [
+      voting,
+      finance,
+      keccak256("MANAGE_PAYMENTS_ROLE"),
+    ]),
+    encodeContractInteraction(acl, setPermissionManagerSignature, [
+      voting,
+      dao,
+      keccak256("APP_MANAGER_ROLE"),
+    ]),
+    encodeContractInteraction(acl, setPermissionManagerSignature, [
+      voting,
+      acl,
+      keccak256("CREATE_PERMISSIONS_ROLE"),
+    ]),
+    encodeContractInteraction(acl, setPermissionManagerSignature, [
+      newVoting,
+      finance,
+      keccak256("MANAGE_PAYMENTS_ROLE"),
+    ]),
+    encodeContractInteraction(acl, setPermissionManagerSignature, [
+      newVoting,
+      finance,
+      keccak256("CREATE_PAYMENTS_ROLE"),
+    ]),
+    encodeContractInteraction(acl, setPermissionManagerSignature, [
+      newVoting,
+      finance,
+      keccak256("EXECUTE_PAYMENTS_ROLE"),
+    ]),
+    encodeContractInteraction(acl, setPermissionManagerSignature, [
+      newVoting,
+      vault,
+      keccak256("TRANSFER_ROLE"),
+    ]),
+    encodeContractInteraction(acl, setPermissionManagerSignature, [
+      newVoting,
+      voting,
+      keccak256("CREATE_VOTES_ROLE"),
+    ]),
+    encodeContractInteraction(acl, setPermissionManagerSignature, [
+      newVoting,
+      voting,
+      keccak256("MODIFY_SUPPORT_ROLE"),
+    ]),
+    encodeContractInteraction(acl, setPermissionManagerSignature, [
+      newVoting,
+      voting,
+      keccak256("MODIFY_QUORUM_ROLE"),
+    ]),
+    encodeContractInteraction(acl, setPermissionManagerSignature, [
+      newVoting,
+      securityTokenManager,
+      keccak256("MINT_ROLE"),
+    ]),
+    encodeContractInteraction(acl, setPermissionManagerSignature, [
+      newVoting,
+      securityTokenManager,
+      keccak256("BURN_ROLE"),
+    ]),
+    encodeContractInteraction(acl, setPermissionManagerSignature, [
+      newVoting,
+      dao,
+      keccak256("APP_MANAGER_ROLE"),
+    ]),
+    encodeContractInteraction(acl, setPermissionManagerSignature, [
+      newVoting,
+      acl,
+      keccak256("CREATE_PERMISSIONS_ROLE"),
+    ]),
   ]);
+
+  
 
   // 7. Package the array of actions into a script
   const script = encodeCallScript(actions);
